@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject tile;
     public TextMeshProUGUI victoryScreen;
     public TextMeshProUGUI failureScreen;
+    public Image safeSplash;
+    public Image agroundSplash;
     public Button restartButton;
     public bool isGameActive = false;
     private float tileWidth;

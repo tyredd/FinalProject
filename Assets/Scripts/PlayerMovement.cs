@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
         {
             horizontalInput = Input.GetAxis("Horizontal");
             transform.Translate(Vector2.right * horizontalInput * speed * Time.deltaTime);
+            
         }
 
         //Player Bounds
@@ -37,16 +38,19 @@ public class Player : MonoBehaviour
         }
     }
 
+    //Player Collision
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Finish"))
         {
             gameManager.victoryScreen.gameObject.SetActive(true);
+            gameManager.safeSplash.gameObject.SetActive(true);
         }
         else if (other.gameObject.CompareTag("Ice"))
         {
             Destroy(gameObject);
             gameManager.failureScreen.gameObject.SetActive(true);
+            gameManager.agroundSplash.gameObject.SetActive(true);
         }
 
         gameManager.restartButton.gameObject.SetActive(true);
